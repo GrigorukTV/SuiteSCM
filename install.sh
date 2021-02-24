@@ -2,11 +2,8 @@
 
 FILE=env/
 
-apt update
-apt install python3
-
 if [ ! -d "$FILE" ]; then
-    python3 -m venv env
+    python -m venv env
 fi
 
 source env/bin/activate && pip install -U pip && pip install -r requirements.txt
