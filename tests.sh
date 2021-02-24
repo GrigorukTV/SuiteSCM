@@ -12,7 +12,7 @@ docker cp my_run:/app/allure-report .
 # Запускаем хост для отчёта аллюр (утилита лежит локально)
 # Хост отчёта нужно будет остановить руками
 # Сылка на алюр должна быть своя
-/Volumes/WDCWD/Downloads/selenium/allure/bin/allure serve allure-report/
+#/Volumes/WDCWD/Downloads/selenium/allure/bin/allure serve allure-report/
 
 # Удаляем из системы созданный контейнер
 #docker system prune -f
