@@ -14,7 +14,7 @@ pipeline {
         stage('Test') {
             steps {
 //                 sh './env/bin/pytest --url ${APP_URL} --executor ${EXECUTOR} --browser ${BROWSER} --alluredir allure-results'
-                sh 'docker run my_test1 --browser chrome'
+                sh 'docker run my_test1 --browser chrome --alluredir allure-results'
             }
         }
     }
@@ -29,7 +29,7 @@ pipeline {
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
+                        results: [[path: 'SuiteCRM/allure-results']]
                 ])
             }
 
