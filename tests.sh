@@ -7,7 +7,7 @@
 docker run my_test --browser chrome
 
 # Копируем из контейнера созданный allure-report
-docker cp my_run:/app/allure-report .
+docker cp my_run:/app/allure-results .
 
 # Запускаем хост для отчёта аллюр (утилита лежит локально)
 # Хост отчёта нужно будет остановить руками
