@@ -1,9 +1,10 @@
 pipeline {
-    agent: any
-
     agent {
-        docker: {image: 'python:3.7'}
+        docker { image 'node:14-alpine' }
     }
+//     agent {
+//         docker: {image: 'python:3.7'}
+//     }
 
     stages {
         stage('Build') {
