@@ -3,7 +3,7 @@ import allure
 
 class Tests:
 
-    @allure.title('Создание документа')
+    # @allure.title('Создание документа')
     def test_create_documents(self, admin_page):
         """В учетной записи администратора создается новые документ и проверяется, что после сохранения он есть в БД"""
         assert admin_page.create_document() == True
