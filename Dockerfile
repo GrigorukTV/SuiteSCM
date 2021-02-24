@@ -20,8 +20,8 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Предустанавливаем команду pytest и отчёт
-ENTRYPOINT ["pytest"]
+ENTRYPOINT ["pytest", "index.py", "--alluredir", "allure-report"]
 
 # Этот параметр можно переопределить при СОЗДАНИИ контейнера т.е. run команде
 # Можно исапользовать так `docker run --rm my_tests --browser firefox`
-#CMD ["--browser", "--url", "--vnc", "--bversion", "--executor"]
+CMD ["--browser", "--url", "--vnc", "--bversion", "--executor"]
