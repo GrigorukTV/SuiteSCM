@@ -13,5 +13,5 @@ docker build -t my_test1 .
 # Запускаем контейнер под именем my_run из image my_tests
 #docker run --name my_run my_test --browser chrome
 
-# Копируем из контейнера созданный allure-report
-#docker cp my_run:/app/allure-report .
+# Копируем из контейнера созданный allure-result
+#docker cp my_run:/app/allure-result .
