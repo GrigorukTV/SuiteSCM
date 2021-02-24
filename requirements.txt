@@ -1,0 +1,6 @@
+selenium==3.141.0
+pytest==6.2.2
+pytest-xdist==2.2.1
+allure-pytest==2.8.34
+pymysql==1.0.2
+requests==2.25.1
