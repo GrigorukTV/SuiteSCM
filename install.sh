@@ -2,8 +2,8 @@
 
 FILE=env/
 
-sudo apt update
-sudo apt install python3
+apt update
+apt install python3
 
 if [ ! -d "$FILE" ]; then
     python3 -m venv env
