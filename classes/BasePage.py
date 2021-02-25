@@ -48,29 +48,35 @@ class BasePage(Selector):
                 self.click_element(self.SAVE_HEADER)
 
     @allure.step("Получен элемент {locator}")
-    def find_element(self, locator, time=2):
+    def find_element(self, locator, time=12):
+        # allure.attach(
+        #     body=self.wd.get_screenshot_as_png(),
+        #     name="screenshot_image",
+        #     attachment_type=allure.attachment_type.PNG)
         try:
-            WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
-            return self
-        except AssertionError:
+            return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
         # return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
 
     @allure.step("Получены элементы {locator}")
-    def find_elements(self, locator, time=2):
+    def find_elements(self, locator, time=12):
+        # allure.attach(
+        #     body=self.wd.get_screenshot_as_png(),
+        #     name="screenshot_image",
+        #     attachment_type=allure.attachment_type.PNG)
         try:
-            WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
-            return self
-        except AssertionError:
+            return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
         # return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
 
     @allure.step("Выполнен клик по элементу {locator}")
@@ -83,10 +89,10 @@ class BasePage(Selector):
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise TimeoutException
+            raise AssertionError
 
     @allure.step("Введен текст '{text}' в элемент {locator}")
-    def send_keys(self, locator, text, time=5):
+    def send_keys(self, locator, text, time=12):
         try:
             WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator)).send_keys(text)
             return self
