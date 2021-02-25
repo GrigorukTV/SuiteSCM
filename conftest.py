@@ -104,7 +104,7 @@ def remote(request):
         if logs and url_data(log_url): requests.delete(url=log_url)
 
         # Add environment info to allure-result
-        with open("allure-report/environment.xml", "w+") as file:
+        with open("allure-result/environment.xml", "w+") as file:
             file.write(f"""<environment>
                 <parameter>
                     <key>Browser</key>
