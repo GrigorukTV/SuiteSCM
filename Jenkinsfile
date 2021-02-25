@@ -13,8 +13,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-//                 sh './env/bin/pytest --url ${APP_URL} --executor ${EXECUTOR} --browser ${BROWSER} --alluredir allure-results'
-                //sh 'docker --name my_test2_name run my_test1 --browser chrome --alluredir allure-results'
+//                 sh './env/bin/pytest --url ${APP_URL} --executor ${EXECUTOR} --browser ${BROWSER} --alluredir allure-report'
+                //sh 'docker --name my_test2_name run my_test1 --browser chrome --alluredir allure-report'
                 sh 'docker run my_test1 --browser chrome --alluredir allure-report'
             }
         }
@@ -22,18 +22,23 @@ pipeline {
 
     post {
         always {
-
             script {
-                allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: '/allure-results']]
-                ])
+                allure([reportBuildPolicy: 'ALWAYS', results: [[path: 'allure-results/allure_results_chrome'], [path: 'allure-results/allure_results_firefox']]])
             }
 
-            cleanWs()
+//         always {
+//
+//             script {
+//                 allure([
+//                         includeProperties: false,
+//                         jdk: '',
+//                         properties: [],
+//                         reportBuildPolicy: 'ALWAYS',
+//                         results: [[path: '/allure-report']]
+//                 ])
+//             }
+
+//             cleanWs()
         }
     }
 }
