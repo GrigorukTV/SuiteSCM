@@ -55,12 +55,12 @@ class BasePage(Selector):
         #     attachment_type=allure.attachment_type.PNG)
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
-        except TimeoutException:
+        except AssertionError:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise TimeoutException
+            raise AssertionError
         # return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
 
     @allure.step("Получены элементы {locator}")
@@ -71,12 +71,12 @@ class BasePage(Selector):
         #     attachment_type=allure.attachment_type.PNG)
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
-        except TimeoutException:
+        except AssertionError:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise TimeoutException
+            raise AssertionError
         # return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
 
     @allure.step("Выполнен клик по элементу {locator}")
