@@ -8,7 +8,7 @@ RUN apt-key fingerprint 0EBFCD88
 RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/debian \
        $(lsb_release -cs) stable"
-RUN apt-get update && apt-get install -y docker-ce-cli && apt-get install -y docker-ce
+RUN apt-get update && apt-get install -y docker-ce-cli
 RUN apt-get install python3 -y && apt-get install python3-pip -y && apt-get install python3-venv -y
 RUN echo "jenkins:jenkins" | chpasswd && adduser jenkins sudo
 

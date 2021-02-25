@@ -6,7 +6,8 @@ if [ ! -d "$FILE" ]; then
     python3 -m venv env
 fi
 
-source env/bin/activate && pip install -U pip && pip install -r requirements.txt
+#source env/bin/activate && pip install -U pip && pip install -r requirements.txt --upgrade
+source env/bin/activate && pip install -U pip
 
 docker build -t my_test1 .
 
