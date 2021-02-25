@@ -37,7 +37,7 @@ def pytest_runtest_makereport(item, call):
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", help="browser", default="chrome")
-    parser.addoption("--url", default="https://192.168.0.13", help="This is request url")
+    parser.addoption("--url", default="http://192.168.0.13", help="This is request url")
     parser.addoption("--bversion", action="store", required=False, default=87.0)
     parser.addoption("--vnc", action="store_true", default=True)
     parser.addoption("--logs", action="store_true", default=False)
