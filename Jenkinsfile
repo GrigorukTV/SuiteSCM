@@ -19,7 +19,7 @@ pipeline {
                 sh 'docker run --name my_test_23 my_test1 --browser chrome'
 
 //                 sh 'docker cp my_test_18:/app/allure-result /var/jenkins_home/workspace/test2/allure-report'
-                sh 'docker cp my_test_23:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
+                sh 'docker cp my_test_23:/app/allure-result allure-results'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-report'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-results'
