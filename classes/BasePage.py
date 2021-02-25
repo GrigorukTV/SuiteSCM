@@ -47,15 +47,15 @@ class BasePage(Selector):
             with allure.step(f"Сохранить звонок"):
                 self.click_element(self.SAVE_HEADER)
 
-    @allure.step("Получить элемент {locator}")
+    @allure.step("Получен элемент {locator}")
     def find_element(self, locator, time=2):
         return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
 
-    @allure.step("Получить элементы {locator}")
+    @allure.step("Получены элементы {locator}")
     def find_elements(self, locator, time=2):
         return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
 
-    @allure.step("Выполняю клик по элементу {locator}")
+    @allure.step("Выполнен клик по элементу {locator}")
     def click_element(self, locator, time=12):
             WebDriverWait(self.wd, time).until(EC.element_to_be_clickable(locator)).click()
             return self
@@ -68,7 +68,7 @@ class BasePage(Selector):
     #             attachment_type=allure.attachment_type.PNG)
     #         raise TimeoutException
 
-    @allure.step("Ввод текста '{text}' в элемент {locator}")
+    @allure.step("Введен текст '{text}' в элемент {locator}")
     def send_keys(self, locator, text, time=5):
         allure.attach(
             body=self.wd.get_screenshot_as_png(),

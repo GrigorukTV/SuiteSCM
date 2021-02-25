@@ -19,8 +19,8 @@ connection_db = pymysql.connect(host='192.168.0.13',
 
 
 class AdminPage(BasePage, Selector):
-    filePath = "./tests/test.png"
-    filePath_2 = "./tests/import_calls.csv"
+    filePath = "SuiteCRM/tests/test.png"
+    filePath_2 = "SuiteCRM/tests/import_calls.csv"
 
     def create_document(self):
         with allure.step(f"Удалить в БД записи с именем 'test.png'"):
