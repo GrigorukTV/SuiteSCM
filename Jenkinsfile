@@ -15,7 +15,7 @@ pipeline {
             steps {
 //                 sh './env/bin/pytest --url ${APP_URL} --executor ${EXECUTOR} --browser ${BROWSER} --alluredir allure-report'
                 //sh 'docker --name my_test2_name run my_test1 --browser chrome --alluredir allure-report'
-                sh 'docker run my_test1 --browser chrome',
+                sh 'docker run my_test1 --browser chrome'
                 sh 'docker cp my_test1:/app/allure-result ./allure-report'
             }
         }
