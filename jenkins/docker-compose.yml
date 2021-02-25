@@ -3,6 +3,7 @@ version: "3.9"
 services:
   jenkins-docker:
     image: 'docker:dind'
+    hostname: 'jenkins-docker'
     networks:
       - jenkins
     environment:
