@@ -1,2 +1,2 @@
-/Volumes/WDCWD/Downloads/selenium/allure/bin/allure serve allure-result/
+/Volumes/WDCWD/Downloads/selenium/allure/bin/allure serve allure-results/
 
