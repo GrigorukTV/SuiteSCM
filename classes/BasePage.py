@@ -1,4 +1,3 @@
-import time
 import allure
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
@@ -49,10 +48,6 @@ class BasePage(Selector):
 
     @allure.step("Получен элемент {locator}")
     def find_element(self, locator, time=12):
-        # allure.attach(
-        #     body=self.wd.get_screenshot_as_png(),
-        #     name="screenshot_image",
-        #     attachment_type=allure.attachment_type.PNG)
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
         except AssertionError:
@@ -61,14 +56,9 @@ class BasePage(Selector):
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
             raise AssertionError
-        # return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
 
     @allure.step("Получены элементы {locator}")
-    def find_elements(self, locator, time=12):
-        # allure.attach(
-        #     body=self.wd.get_screenshot_as_png(),
-        #     name="screenshot_image",
-        #     attachment_type=allure.attachment_type.PNG)
+    def find_elements(self, locator, time=6):
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
         except AssertionError:
@@ -77,10 +67,9 @@ class BasePage(Selector):
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
             raise AssertionError
-        # return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
 
     @allure.step("Выполнен клик по элементу {locator}")
-    def click_element(self, locator, time=12):
+    def click_element(self, locator, time=6):
         try:
             WebDriverWait(self.wd, time).until(EC.element_to_be_clickable(locator)).click()
             return self
@@ -92,7 +81,7 @@ class BasePage(Selector):
             raise AssertionError
 
     @allure.step("Введен текст '{text}' в элемент {locator}")
-    def send_keys(self, locator, text, time=12):
+    def send_keys(self, locator, text, time=6):
         try:
             WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator)).send_keys(text)
             return self
@@ -102,31 +91,3 @@ class BasePage(Selector):
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
             raise AssertionError
-        # allure.attach(
-        #     body=self.wd.get_screenshot_as_png(),
-        #     name="screenshot_image",
-        #     attachment_type=allure.attachment_type.PNG)
-        # return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator)).send_keys(text)
-
-    # не используется в этом проекте
-    # @allure.step("Открываю url {locator}")
-    # def url_to_be(self, locator, time=5):
-    #     return WebDriverWait(self.wd, time).until(EC.url_to_be(locator))
-    #
-    # @allure.step("Проверяю url {locator}")
-    # def url_changes(self, locator, time=1):
-    #     return WebDriverWait(self.wd, time).until(EC.url_changes(locator))
-    #
-    # @allure.step("Получаю количество элементов")
-    # def return_len(self, locator):
-    #     elements = self.wd.find_elements_by_css_selector(locator)
-    #     return len(elements)
-    #
-    # def text_present(self, locator, time=5):
-    #     return WebDriverWait(self.wd, time).until(EC.text_to_be_present_in_element(locator))
-    #
-    # # def element_located(self, locator, time=5):
-    # #     return WebDriverWait(self.wd, time).until(EC.visibility_of_element_located(locator))
-    #
-    # # def elements_located(self, locator, time=5):
-    # #     return WebDriverWait(self.wd, time).until(EC.visibility_of_any_elements_located(locator))
