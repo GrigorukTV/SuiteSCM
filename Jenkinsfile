@@ -16,10 +16,10 @@ pipeline {
 //                 sh './env/bin/pytest --url ${APP_URL} --executor ${EXECUTOR} --browser ${BROWSER} --alluredir allure-report'
                 //sh 'docker --name my_test2_name run my_test1 --browser chrome --alluredir allure-report'
 //                 sh 'docker run my_test1 --browser chrome'
-                sh 'docker run --name my_test_69 my_test1 --browser chrome'
+                sh 'docker run --name my_test_70 my_test1 --browser chrome'
 
 //                 sh 'docker cp my_test_18:/app/allure-result /var/jenkins_home/workspace/test2/allure-report'
-                sh 'docker cp my_test_69:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
+                sh 'docker cp my_test_70:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-report'
 //                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-results'
