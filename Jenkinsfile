@@ -17,12 +17,12 @@ pipeline {
                 //sh 'docker --name my_test2_name run my_test1 --browser chrome --alluredir allure-report'
 //                 sh 'docker run my_test1 --browser chrome'
                 sh 'docker run --name my_test_18 my_test1 --browser chrome'
-                sh 'ls -la'
-                sh 'docker cp my_test_18:/app/allure-result /var/jenkins_home/workspace/test2/allure-report'
+
+//                 sh 'docker cp my_test_18:/app/allure-result /var/jenkins_home/workspace/test2/allure-report'
                 sh 'docker cp my_test_18:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
-                sh 'ls -la /var/jenkins_home/workspace/test2'
-                sh 'ls -la /var/jenkins_home/workspace/test2/allure-report'
-                sh 'ls -la /var/jenkins_home/workspace/test2/allure-results'
+//                 sh 'ls -la /var/jenkins_home/workspace/test2'
+//                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-report'
+//                 sh 'ls -la /var/jenkins_home/workspace/test2/allure-results'
             }
         }
     }
