@@ -6,15 +6,15 @@ import allure
 # from tests.Tests import Tests
 class Tests:
 
-    @allure.title('Создание документа')
-    def test_create_documents(self, admin_page):
-        """В учетной записи администратора создается новые документ и проверяется, что после сохранения он есть в БД"""
-        assert admin_page.create_document() == True
+    # @allure.title('Создание документа')
+    # def test_create_documents(self, admin_page):
+    #     """В учетной записи администратора создается новые документ и проверяется, что после сохранения он есть в БД"""
+    #     assert admin_page.create_document() == True
 
-    # @allure.title('Создание и удаление таска')
-    # def test_create_task(self, admin_page):
-    #     """В учетной записи администратора создается, а затем удаляется новый таск."""
-    #     assert admin_page.create_delete_tasks() == True
+    @allure.title('Создание и удаление таска')
+    def test_create_task(self, admin_page):
+        """В учетной записи администратора создается, а затем удаляется новый таск."""
+        assert admin_page.create_delete_tasks() == True
     #
     # @allure.title('Создание и редактирование звонка')
     # def test_create_calls(self, admin_page):
