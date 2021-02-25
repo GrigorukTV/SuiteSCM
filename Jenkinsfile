@@ -20,6 +20,7 @@ pipeline {
                 sh 'ls -la'
                 sh 'docker cp my_test_13:/app/allure-result ./allure-report'
                 sh 'ls -la'
+                sh 'PWD'
             }
         }
     }
