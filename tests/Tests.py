@@ -1,14 +1,13 @@
 import allure
+import pytest
 
-# import pytest
-#
-#
-# from tests.Tests import Tests
+
 class Tests:
 
     # @allure.title('Создание документа')
     # def test_create_documents(self, admin_page):
-    #     """В учетной записи администратора создается новые документ и проверяется, что после сохранения он есть в БД"""
+    #     """В учетной записи администратора создается новые документ
+    #     и проверяется, что после сохранения он есть в БД"""
     #     assert admin_page.create_document() == True
 
     @allure.title('Создание и удаление таска')
@@ -55,11 +54,13 @@ class Tests:
     #     После добавления, звонок отображается в разделе Избранные"""
     #     assert admin_page.favorites_address_cash() == True
     #
-    # @allure.title('Добавление таска в созданный проект')
-    # def test_project(self, admin_page):
-    #     """В учетной записи администратора создается новый проект и добавляется новый таск.
-    #     Добавленный таск должен отображаться в таблице тасков """
-    #     assert admin_page.create_project() == 'НОВАЯ ЗАДАЧА'
+
+    @allure.title('Добавление таска в созданный проект')
+    @pytest.mark.xfail(reason=" Тест не пройдет")
+    def test_project(self, admin_page):
+        """В учетной записи администратора создается новый проект и добавляется новый таск.
+        Добавленный таск должен отображаться в таблице тасков """
+        assert admin_page.create_project() == 'НОВАЯ ЗАДАЧА'
 
 
 

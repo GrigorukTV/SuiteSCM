@@ -77,7 +77,7 @@ class AdminPage(BasePage, Selector):
             with allure.step(f"Открыть вкладку Просмотр заданий"):
                 view_task = self.find_element(self.VIEW_TASK)
                 view_task.click()
-            with allure.step(f"Подсчитать количеста заданий, после создания нового таска"):
+            with allure.step(f"Подсчитать количество заданий, после создания нового таска"):
                 count_checkbox = self.find_elements(self.ALL_CHECKBOX)
             with allure.step(f"Выбрать созданный таск"):
                 cl = self.find_element(self.CHECKBOX)
@@ -88,7 +88,7 @@ class AdminPage(BasePage, Selector):
                     "return sListView.send_mass_update('selected', 'Please select at least 1 record to proceed.', 1)")
                 # закрытие аллерта
                 self.wd.switch_to_alert().accept()
-            with allure.step(f"Подсчитать количество чебоксов, после удаления таска"):
+            with allure.step(f"Подсчитать количество заданий, после удаления таска"):
                 count_checkbox_2 = self.find_elements(self.ALL_CHECKBOX)
         # сравнение количества тасков
         if len(count_checkbox) > len(count_checkbox_2):
