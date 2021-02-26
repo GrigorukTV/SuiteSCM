@@ -11,15 +11,15 @@ pipeline {
         stage('Test') {
             steps {
                 catchError {
-                    sh 'docker run --name my_test_53 -d my_test44 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
+                    sh 'docker run --name my_test_54 -d my_test44 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
                 }
             }
          }
         stage('Copy_allure') {
             steps {
 //                 sh 'docker run --name my_test_35 my_test1 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
-                   sh 'docker cp my_test_53:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
-                   sh 'docker system prune -f'
+                   sh 'docker cp my_test_54:/app/allure-result /var/jenkins_home/workspace/test2/allure-results'
+//                    sh 'docker system prune -f'
             }
         }
     }
