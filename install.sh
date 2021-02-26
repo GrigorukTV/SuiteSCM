@@ -8,7 +8,7 @@ fi
 
 source env/bin/activate && pip install -U pip && pip install -r requirements.txt
 
-docker build -t my_test3 .
+docker build -t my_test44 .
 
 # Запускаем контейнер под именем my_run из image my_tests
 #docker run --name my_run my_test --browser chrome
