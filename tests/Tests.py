@@ -63,9 +63,11 @@ class Tests:
         Добавленный таск должен отображаться в таблице тасков """
         try:
             with allure.step("here is bad case"):
-                assert admin_page.create_project() == 'НОВАЯ ЗАДАЧ'
+                with allure.issue('Hui22!'):
+                    assert admin_page.create_project() == 'НОВАЯ ЗАДАЧ'
         except AssertionError:
-            pass
+            with allure.issue('Hui!'):
+                pass
 
 
 
