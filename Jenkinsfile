@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 catchError {
-                    sh 'docker run --name my_test_50 my_test5 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
+                    sh 'docker run --name my_test_50 -d my_test5 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
                 }
             }
          }
