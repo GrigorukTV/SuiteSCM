@@ -10,9 +10,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                catchError {
+//                 catchError {
                     sh 'docker run --name my_test_48 -d my_test3 --url ${URL} --executor ${EXECUTOR} --browser ${BROWSER} --bversion ${BVERSION} -n ${NODES}'
-                }
+//                 }
             }
          }
         stage('Copy_allure') {
