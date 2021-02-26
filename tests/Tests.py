@@ -56,6 +56,7 @@ class Tests:
     #
     #
     @allure.title('Добавление таска в созданный проект')
+    @pytest.hookimpl(tryfirst=True, hookwrapper=True)
     # @pytest.mark.xfail(reason=" Тест не пройдет")
     def test_project(self, admin_page):
         """В учетной записи администратора создается новый проект и добавляется новый таск.
