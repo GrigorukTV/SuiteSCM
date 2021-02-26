@@ -1,11 +1,9 @@
-import time
 import re
 import allure
 from selenium.common.exceptions import ElementNotVisibleException, WebDriverException
 from classes.selectors import Selector
 from classes.Browser import Browser
 from classes.BasePage import BasePage
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import pymysql.cursors
 

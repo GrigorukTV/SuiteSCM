@@ -8,8 +8,6 @@ from classes.Browser import Browser
 from classes.AdminPage import AdminPage
 
 
-
-
 @allure.step("Waiting for resource availability {url}")
 def url_data(url, timeout=10):
     while timeout:
@@ -25,7 +23,6 @@ def url_data(url, timeout=10):
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
-# https://github.com/pytest-dev/pytest/issues/230#issuecomment-402580536
 def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
@@ -56,7 +53,6 @@ def remote(request):
     video = request.config.getoption("--video")
     executor_url = f"http://{executor}:4444/wd/hub"
 
-
     caps = {
         "browserName": browser,
         "screenResolution": "1280x720",
@@ -65,12 +61,6 @@ def remote(request):
             "enableVNC": vnc,
             "enableVideo": video,
             "enableLog": logs,
-        },
-        'acceptSslCerts': True,
-        'acceptInsecureCerts': True,
-        'timeZone': 'Europe/Moscow',
-        'goog:chromeOptions': {
-            'args': []
         }
     }
 
@@ -120,6 +110,7 @@ def remote(request):
                 </parameter>
             </environment>
             """)
+
     request.addfinalizer(finalizer)
     wd.get(url)
     return wd
@@ -130,4 +121,3 @@ def remote(request):
 def admin_page(remote):
     home = AdminPage(remote)
     return home
-

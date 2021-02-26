@@ -50,44 +50,44 @@ class BasePage(Selector):
     def find_element(self, locator, time=12):
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator))
-        except AssertionError:
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
 
     @allure.step("Получены элементы {locator}")
     def find_elements(self, locator, time=6):
         try:
             return WebDriverWait(self.wd, time).until(EC.presence_of_all_elements_located(locator))
-        except AssertionError:
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
 
     @allure.step("Выполнен клик по элементу {locator}")
     def click_element(self, locator, time=6):
         try:
             WebDriverWait(self.wd, time).until(EC.element_to_be_clickable(locator)).click()
             return self
-        except AssertionError:
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
 
     @allure.step("Введен текст '{text}' в элемент {locator}")
     def send_keys(self, locator, text, time=6):
         try:
             WebDriverWait(self.wd, time).until(EC.presence_of_element_located(locator)).send_keys(text)
             return self
-        except AssertionError:
+        except TimeoutException:
             allure.attach(
                 body=self.wd.get_screenshot_as_png(),
                 name="screenshot_image",
                 attachment_type=allure.attachment_type.PNG)
-            raise AssertionError
+            raise TimeoutException
