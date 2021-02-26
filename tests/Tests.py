@@ -9,11 +9,11 @@ class Tests:
     #     """В учетной записи администратора создается новые документ
     #     и проверяется, что после сохранения он есть в БД"""
     #     assert admin_page.create_document() == True
-
-    @allure.title('Создание и удаление таска')
-    def test_create_task(self, admin_page):
-        """В учетной записи администратора создается, а затем удаляется новый таск."""
-        assert admin_page.create_delete_tasks() == True
+    #
+    # @allure.title('Создание и удаление таска')
+    # def test_create_task(self, admin_page):
+    #     """В учетной записи администратора создается, а затем удаляется новый таск."""
+    #     assert admin_page.create_delete_tasks() == True
     #
     # @allure.title('Создание и редактирование звонка')
     # def test_create_calls(self, admin_page):
@@ -54,9 +54,9 @@ class Tests:
     #     После добавления, звонок отображается в разделе Избранные"""
     #     assert admin_page.favorites_address_cash() == True
     #
-
+    #
     @allure.title('Добавление таска в созданный проект')
-    @pytest.mark.xfail(reason=" Тест не пройдет")
+    # @pytest.mark.xfail(reason=" Тест не пройдет")
     def test_project(self, admin_page):
         """В учетной записи администратора создается новый проект и добавляется новый таск.
         Добавленный таск должен отображаться в таблице тасков """
