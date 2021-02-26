@@ -61,13 +61,14 @@ class Tests:
     def test_project(self, admin_page):
         """В учетной записи администратора создается новый проект и добавляется новый таск.
         Добавленный таск должен отображаться в таблице тасков """
-        try:
-            with allure.step("here is bad case"):
-                with allure.issue('Hui22!'):
-                    assert admin_page.create_project() == 'НОВАЯ ЗАДАЧ'
-        except AssertionError:
-            with allure.issue('Hui!'):
-                pass
+        assert admin_page.create_project() == 'НОВАЯ ЗАДАЧ'
+        # try:
+        #     with allure.step("here is bad case"):
+        #         with allure.issue('Hui!'):
+        #             assert admin_page.create_project() == 'НОВАЯ ЗАДАЧ'
+        # except AssertionError:
+        #     with allure.issue('Hui!'):
+        #         pass
 
 
 
